@@ -8,18 +8,18 @@ import 'package:KDT_SENTIMENTO/screen/Home/Expression_Quiz/ml/classifier_emotion
 import 'package:logger/logger.dart';
 import '../../../constants.dart';
 import '../../../theme.dart';
+import 'package:flutter/cupertino.dart';
 
-
-class camera extends StatefulWidget {
-  camera({Key? key, this.title}) : super(key: key);
+class camera1 extends StatefulWidget {
+  camera1({Key? key, this.title}) : super(key: key);
 
   final String? title;
 
   @override
-  _camera createState() => _camera();
+  _camera1 createState() => _camera1();
 }
 
-class _camera extends State<camera> {
+class _camera1 extends State<camera1> {
   MLService _mlService = MLService();
   //FilePickerService _filePickerService = FilePickerService();
   var logger = Logger();
@@ -84,7 +84,7 @@ class _camera extends State<camera> {
               ),
               Text.rich(
                 TextSpan(
-                  text: '~~한 표정을 지어봐!',
+                  text: '~~한 표정을 지어봐! easy',
                   style: textTheme().headline1?.copyWith(
                       color: kTextColor,
                       fontSize: 25,fontWeight: FontWeight.bold),
@@ -121,28 +121,20 @@ class _camera extends State<camera> {
                 ),
               ),
               SizedBox(
-                height:50,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(100, 50),
-                    primary: kBackColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: ((context) => expressLearn1())));
-                  },
-                  child: Text.rich(
-                    TextSpan(
-                      text: '다음',
-                      style: textTheme().headline2?.copyWith(
-                          color: kTextColor,
-                          fontSize: 20,fontWeight: FontWeight.bold),
-                    ),
-                  )
+                height: 50,
+              ),
+              ElevatedButton.icon(
+                icon: Icon(
+                  Icons.arrow_forward_ios,
+                  size: 30,
                 ),
+                onPressed: (){Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => expressLearn1()),
+                );},
+                label: Text('다음'),
+                style: ElevatedButton.styleFrom(primary: kPink),
+
               )
             ],
           ),
