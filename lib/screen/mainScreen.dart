@@ -34,10 +34,12 @@ class _MainScreenState extends State<MainScreen> {
           //   ],//새봄코드
           // ),
           bottomNavigationBar:BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            unselectedItemColor: Colors.pink.shade100,
             showSelectedLabels: false,
             showUnselectedLabels: false,
             currentIndex: selectedIndex,
-            selectedItemColor: kPrimaryColor,
+            selectedItemColor: Colors.pink.shade200,
             onTap: (i) {
               setState((){
                 selectedIndex = i;
@@ -46,36 +48,21 @@ class _MainScreenState extends State<MainScreen> {
             },
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
-                icon: SizedBox(
-                    width: 45,
-                    height: 45,
-                    child: IconButton(
-                      onPressed: () {
-                      },
-                      icon: Icon(Icons.home_filled),
-                      color: Color.fromRGBO(226, 167, 194, 1.0),)),
+                icon: Icon(Icons.home_filled),
+                      // color: Color.fromRGBO(226, 167, 194, 1.0),)),
                 label: "홈",
               ),
               BottomNavigationBarItem(
-                  icon: SizedBox(
-                      width: 45,
-                      height: 45,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.question_answer_rounded),
-                        color: Color.fromRGBO(226, 167, 194, 1.0),)),
+                  icon: Icon(Icons.question_answer_rounded),
+                        //color: Color.fromRGBO(226, 167, 194, 1.0),)),
                   label: "AAC"),
               BottomNavigationBarItem(
-                icon: SizedBox(
-                    width: 45,
-                    height: 45,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.settings),
-                      color: Color.fromRGBO(226, 167, 194, 1.0),)),
+                icon: Icon(Icons.settings),
+                      //color: Color.fromRGBO(226, 167, 194, 1.0),)),
                 label: "설정",),
             ],
           )
       );
   }
+
 }
