@@ -11,6 +11,9 @@ import 'package:KDT_SENTIMENTO/screen/AAC/aac.dart';
 
 import 'package:flip_card/flip_card.dart';
 
+import '../Home/component/appbar.dart';
+import '../Home/component/drawer.dart';
+
 class AacScreen extends StatefulWidget {
   // const AacScreen({Key? key}) : super(key: key);
   AacScreen({Key? key, required this.title, required this.idx}) : super(key: key);
@@ -111,6 +114,7 @@ class _AacScreen extends State<AacScreen> {
 
   int idx;
   File? _image;
+  var selectedIndex = 1;
 
   _AacScreen({required this.idx});
 
@@ -139,6 +143,9 @@ class _AacScreen extends State<AacScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MainDrawer(
+      ),
+      appBar: MainAppBar(appBar: AppBar()),
       body: GridView.count(
         crossAxisCount: 2,
         //1 개의 행에 보여줄 item 개수
@@ -201,6 +208,35 @@ class _AacScreen extends State<AacScreen> {
           );
         }),
       ),
+        bottomNavigationBar:BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          unselectedItemColor: Colors.pink.shade100,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          currentIndex: selectedIndex,
+          selectedItemColor: Colors.pink.shade200,
+          onTap: (i) {
+            setState((){
+              selectedIndex = i;
+              print(i);
+            });
+          },
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.edit),
+              // color: Color.fromRGBO(226, 167, 194, 1.0),)),
+              label: "홈",
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.question_answer_rounded),
+                //color: Color.fromRGBO(226, 167, 194, 1.0),)),
+                label: "AAC"),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              //color: Color.fromRGBO(226, 167, 194, 1.0),)),
+              label: "설정",),
+          ],
+        )
     );
   }
 }

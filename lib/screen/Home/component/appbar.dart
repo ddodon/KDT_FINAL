@@ -1,6 +1,9 @@
 import 'package:KDT_SENTIMENTO/constants.dart';
+import 'package:KDT_SENTIMENTO/screen/mainScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../home.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   final AppBar appBar;
@@ -24,11 +27,9 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
         IconButton(
           onPressed: (){
             Navigator.push(context,
-              MaterialPageRoute(builder: (c){
-                return Text('설정');
-              }),
-            );},
-          icon: Icon(Icons.settings),
+                MaterialPageRoute(builder: ((context) => MainScreen())));
+          },
+          icon: Icon(Icons.home_filled),
           iconSize: 30,
         )
       ],
@@ -39,3 +40,5 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   // TODO: implement preferredSize
   Size get preferredSize => new Size.fromHeight(appBar.preferredSize.height);
 }
+
+

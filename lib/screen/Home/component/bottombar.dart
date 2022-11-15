@@ -19,53 +19,47 @@ class _BottomBarState extends State<BottomBar> {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-      currentIndex: selectedIndex,
-      selectedItemColor: kPrimaryColor,
-      onTap: (i) {
-        setState((){
-          selectedIndex = i;
-          print(i);
-        });
-      },
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: SizedBox(
-              width: 45,
-              height: 45,
-              child: IconButton(
-                onPressed: () {
-                      (context)=> Home();
-                },
-                icon: Icon(Icons.home_filled),
-                color: Color.fromRGBO(226, 167, 194, 1.0),)),
-          label: "홈",
-        ),
-        BottomNavigationBarItem(
-            icon: SizedBox(
-                width: 45,
-                height: 45,
-                child: IconButton(
-                  onPressed: () {
-                        (context)=> AacCategory(title: 'aacScreen',);
-                  },
-                  icon: Icon(Icons.question_answer_rounded),
-                  color: Color.fromRGBO(226, 167, 194, 1.0),)),
-            label: "AAC"),
-        BottomNavigationBarItem(
-            icon: SizedBox(
-                width: 45,
-                height: 45,
-                child: IconButton(
-                  onPressed: () {
-                        (context)=> Setting();
-                  },
-                  icon: Icon(Icons.star),
-                  color: Color.fromRGBO(226, 167, 194, 1.0),)),
-            label: "이벤트"),
-      ],
-    );
+    return Scaffold(
+      appBar: AppBar(title: Text('BottomNavigationBar')),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.grey,
+        unselectedItemColor: Colors.white.withOpacity(.60),
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        currentIndex: selectedIndex,
+        selectedItemColor: kPrimaryColor,
+        onTap: (i) {
+          setState((){
+            selectedIndex = i;
+            print(i);
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            label: "홈?",
+            icon: Icon(Icons.home_filled),
+          ),
+          BottomNavigationBarItem(
+            label: "AAC",
+            icon: Icon(Icons.home_filled),
+          ),
+          BottomNavigationBarItem(
+            label: "설정",
+            icon: Icon(Icons.star),
+          ),
+        ],
+      ),
+      body: Center(
+        child: _widgetOptions.elementAt(selectedIndex),
+      ),
+
+      );
   }
+
+  List _widgetOptions = [
+    Home(),
+    Text('aac'),
+    Text('설정')
+  ];
 }
