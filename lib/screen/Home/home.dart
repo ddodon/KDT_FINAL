@@ -1,3 +1,8 @@
+import 'package:KDT_SENTIMENTO/screen/Home/Expression_Quiz/level.dart';
+import 'package:KDT_SENTIMENTO/screen/Home/Expression_Quiz/quiz_easy.dart';
+import 'package:KDT_SENTIMENTO/screen/Home/Expression_Quiz/quiz_hard.dart';
+import 'package:KDT_SENTIMENTO/screen/Home/Expression_Quiz/quiz_mid.dart';
+import 'package:KDT_SENTIMENTO/screen/Home/Feeling_Cards/feeling_card.dart';
 import 'package:KDT_SENTIMENTO/screen/Home/Speaking/speaking_menu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -99,8 +104,8 @@ class Quiz extends StatelessWidget {
           ),
       ),
       onPressed: () {
-        // Navigator.push(context,
-        //     MaterialPageRoute(builder: ((context) => )));
+        Navigator.push(context,
+             MaterialPageRoute(builder: ((context) => Expression_quiz())));
       },
       child: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -140,8 +145,8 @@ class Cards extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        // Navigator.push(context,
-        //     MaterialPageRoute(builder: ((context) => )));
+        Navigator.push(context,
+             MaterialPageRoute(builder: ((context) => EmotionCardScreen())));
       },
       child: Padding(
         padding: const EdgeInsets.all(20.0),

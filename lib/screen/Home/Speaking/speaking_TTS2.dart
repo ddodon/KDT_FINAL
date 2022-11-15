@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import "package:flutter_tts/flutter_tts.dart";
 
-class speakingTTS extends StatelessWidget {
+class speakingTTS2 extends StatelessWidget {
   //speakingTTS({Key? key}) : super(key: key);
   final FlutterTts tts = FlutterTts();
 
-  speechTTS(){
+  speechTTS2(){
     tts.setLanguage('kr');
     tts.setSpeechRate(0.9);
     tts.setPitch(1.2);
@@ -22,6 +22,16 @@ class speakingTTS extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                      onPressed: (){
+                        Navigator.pop(context);
+                      },
+                      icon:Icon(Icons.arrow_back,size: 35,)),
+                  Text('',style: TextStyle(color: Colors.black,fontSize: 30),)],
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
