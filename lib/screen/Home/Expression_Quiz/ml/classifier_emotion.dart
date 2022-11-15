@@ -1,5 +1,5 @@
+import 'dart:io';
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
@@ -8,25 +8,25 @@ class MLService {
   Dio dio = Dio();
 
   // ml server
-  // https://github.com/PuzzleLeaf/tensorflow_flask_api_server
-  Future<String?> convertEmotionImage (Uint8List imageData) async {
+  Future<String?> convertEmotionImage (String image) async {
     try {
+      dio.options.contentType = 'multipart/form-data';
+      dio.options.maxRedirects.isFinite;
 
-      var encodedData = await compute(base64Encode, imageData);
+      var bytes = File(image).readAsBytesSync();
+      var encodedData = await compute(base64Encode, bytes);
+      var formData = FormData.fromMap({'image': encodedData});
 
-      print('imageData');
-      //chrome
-      //Response response = await dio.post('http://localhost:5000/v1/image/classifymodel',
-
-      //AndroidEmulator
-      Response response = await dio.post('http://10.0.2.2:5000/v1/image/classifymodel',
-          data: {
-            'image': encodedData
-          }
+      Response response = await dio.post(
+          'http:/*.*.*.*:5005/v1/image/classifymodel',
+          data: formData
       );
-
+      print('성공적으로 업로드했습니다');
       String result = response.data;
+      print(result);
+
       return result;
+
     } catch (e) {
       print(e);
       print('error?');
@@ -34,3 +34,4 @@ class MLService {
     }
   }
 }
+
