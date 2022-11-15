@@ -87,6 +87,12 @@ flutter:
   assets:
   - assets/icons/
   - assets/image/
+  - assets/image/01_greeting/
+  - assets/image/02_emotion/
+  - assets/image/03_expression/
+  - assets/image/04_sense/
+  - assets/image/05_demand/
+  - assets/image/06_question/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

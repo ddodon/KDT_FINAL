@@ -1,9 +1,10 @@
 import 'package:KDT_SENTIMENTO/constants.dart';
+import 'package:KDT_SENTIMENTO/screen/AAC/aacCategory.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:KDT_SENTIMENTO/screen/home/home.dart';
 
-import '../../AAC/aac.dart';
+import 'package:KDT_SENTIMENTO/screen/AAC/aacScreen.dart';
 import '../../Setting/setting.dart';
 
 class BottomBar extends StatefulWidget {
@@ -48,7 +49,7 @@ class _BottomBarState extends State<BottomBar> {
                 height: 45,
                 child: IconButton(
                   onPressed: () {
-                        (context)=> AAC();
+                        (context)=> AacCategory(title: 'aacScreen',);
                   },
                   icon: Icon(Icons.question_answer_rounded),
                   color: Color.fromRGBO(226, 167, 194, 1.0),)),

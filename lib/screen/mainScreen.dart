@@ -2,7 +2,7 @@ import 'package:KDT_SENTIMENTO/screen/home/component/appbar.dart';
 import 'package:KDT_SENTIMENTO/screen/home/component/drawer.dart';
 import 'package:flutter/material.dart';
 import '../constants.dart';
-import 'AAC/aac.dart';
+import 'AAC/aacCategory.dart'; //////////////////////////////////////////////////
 import 'home/home.dart';
 import 'Setting/setting.dart';
 
@@ -21,8 +21,8 @@ class _MainScreenState extends State<MainScreen> {
           ),
           appBar: MainAppBar(appBar: AppBar()),
           body: PageView(
-            children: [
-              [Home(), AAC(), Setting()][selectedIndex],
+            children: [ ////////////////////////////////////AacCategory로 변경
+              [Home(), AacCategory(title: 'aacScreen',), Setting()][selectedIndex],
             ],
           ),
           // IndexedStack(
