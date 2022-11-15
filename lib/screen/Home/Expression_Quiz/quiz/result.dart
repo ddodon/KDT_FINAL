@@ -1,3 +1,4 @@
+import 'package:KDT_SENTIMENTO/screen/Home/home.dart';
 import 'package:flutter/material.dart';
 import '../../../../constants.dart';
 import '../../../../theme.dart';
@@ -40,7 +41,10 @@ class Result extends StatelessWidget {
                 CupertinoIcons.back,
                 size: 30,
               ),
-              onPressed: (){Navigator.pop(context);},
+              onPressed: (){Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Home()),
+              );},
               label: Text('돌아가기'),
               style: ElevatedButton.styleFrom(primary: kPink),
 

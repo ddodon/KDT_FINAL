@@ -21,20 +21,6 @@ class _expressLearn3 extends State<expressLearn3> {
         {'text':'당황','score':7},{'text':'분노','score':7},
         {'text':'슬픔','score':5}, {'text':'상처','score':3}]
     },
-    {
-      'questionText': '사진 속 인물의 표정을 보고 감정을 맞춰봐!',
-      'imagePath':'assets/image/2.jpg',
-      'answers': [{'text':'기쁨','score':10}, {'text':'불안','score':7},
-        {'text':'당황','score':7},{'text':'분노','score':7},
-        {'text':'슬픔','score':5}, {'text':'상처','score':3}]
-    },
-    {
-      'questionText': '사진 속 인물의 표정을 보고 감정을 맞춰봐!',
-      'imagePath':'assets/image/3.jpg',
-      'answers': [{'text':'기쁨','score':10}, {'text':'불안','score':7},
-        {'text':'당황','score':7},{'text':'분노','score':7},
-        {'text':'슬픔','score':5}, {'text':'상처','score':3}]
-    },
   ];
 
   var _questionIndex = 0;

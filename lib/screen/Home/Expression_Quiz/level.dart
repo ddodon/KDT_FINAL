@@ -1,4 +1,6 @@
-import 'package:KDT_SENTIMENTO/screen/Home/Expression_Quiz/camera_quiz.dart';
+import 'package:KDT_SENTIMENTO/screen/Home/Expression_Quiz/camera_easy.dart';
+import 'package:KDT_SENTIMENTO/screen/Home/Expression_Quiz/camera_hard.dart';
+import 'package:KDT_SENTIMENTO/screen/Home/Expression_Quiz/camera_mid.dart';
 import 'package:flutter/material.dart';
 import 'package:KDT_SENTIMENTO/constants.dart';
 import 'package:flutter/cupertino.dart';
@@ -38,7 +40,7 @@ class Expression_quiz extends StatelessWidget {
                 ),
                 onPressed: (){
                   Navigator.push(context,
-                      MaterialPageRoute(builder: ((context) => camera())));
+                      MaterialPageRoute(builder: ((context) => camera1())));
                 },
                 child: Text("초급",
                     style: textTheme().headline1?.copyWith(
@@ -54,7 +56,7 @@ class Expression_quiz extends StatelessWidget {
                 ),
                 onPressed: (){
                   Navigator.push(context,
-                      MaterialPageRoute(builder: ((context) => camera())));
+                      MaterialPageRoute(builder: ((context) => camera2())));
                 },
                 child: Text("중급",
                     style:textTheme().headline1?.copyWith(
@@ -70,7 +72,7 @@ class Expression_quiz extends StatelessWidget {
                 ),
                 onPressed: (){
                   Navigator.push(context,
-                      MaterialPageRoute(builder: ((context) => camera() )));
+                      MaterialPageRoute(builder: ((context) => camera3() )));
                 },
                 child: Text("고급",
                     style: textTheme().headline1?.copyWith(
