@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "446758299900",
+    "project_id": "sentimentor-db",
+    "storage_bucket": "sentimentor-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:446758299900:android:a3de05ed3c9693926b8f79",
+        "android_client_info": {
+          "package_name": "com.example.sentimento"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "446758299900-qvk19scdhctm1e0dapvql9tadboo8i4u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDskhpThW6nhtmUzX78hWzzj5kZ7Lvgg7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "446758299900-qvk19scdhctm1e0dapvql9tadboo8i4u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "446758299900-6ceev4fh80gc18im829f6bunfqufb557.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sentimento"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
