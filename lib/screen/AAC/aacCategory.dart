@@ -41,11 +41,12 @@ class _AacCategory extends State<AacCategory> {
 
   @override
   Widget build(BuildContext context) {
+    var screenratio = MediaQuery.of(context).size.width / MediaQuery.of(context).size.height;
     return Scaffold(
         body: GridView.count(
           crossAxisCount: 2,
           //1 개의 행에 보여줄 item 개수
-          childAspectRatio: 2 / 2,
+          childAspectRatio: 1 / 1,
           //item 의 가로 1, 세로 2 의 비율
           mainAxisSpacing: 10,
           //수평 Padding
@@ -67,17 +68,21 @@ class _AacCategory extends State<AacCategory> {
                     color: kPink,
                     child: Column(
                         children: <Widget>[
-                          Container(
-                              width: MediaQuery.of(context).size.width / 4,
-                              height: MediaQuery.of(context).size.height / 6,
+                          Expanded(
+                          child: Container(
+                              width: MediaQuery.of(context).size.width / 3,
+                              height: MediaQuery.of(context).size.width / 4,
                               margin: EdgeInsets.fromLTRB(1, 30, 1, 10),
                               child: Center(
                                 child: Image.asset(
                                   cateIcon.elementAt(index)['icon']!,
                                 ),
                               )
-                          ),
-                          Text(cateIcon.elementAt(index)['name']!,),
+                          ),),
+                          Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(cateIcon.elementAt(index)['name']!,),
+                          )
                         ]
                     )
                 )
