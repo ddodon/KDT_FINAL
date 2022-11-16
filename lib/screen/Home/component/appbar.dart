@@ -31,6 +31,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
           },
           icon: Icon(Icons.home_filled),
           iconSize: 30,
+          color: Colors.black12,
         )
       ],
     );

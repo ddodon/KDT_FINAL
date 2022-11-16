@@ -1,3 +1,4 @@
+import 'package:KDT_SENTIMENTO/screen/Splash/splashScreen.dart';
 import 'package:KDT_SENTIMENTO/screen/home/component/appbar.dart';
 import 'package:KDT_SENTIMENTO/screen/home/component/drawer.dart';
 import 'package:flutter/material.dart';
@@ -14,24 +15,14 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  var selectedIndex = 0;
-
+  int selectedIndex = 0;
+  List pages = [Home(), AacCategory(title: 'aacScreen'), Setting()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         drawer: const MainDrawer(),
         appBar: MainAppBar(appBar: AppBar(elevation: 10.0,)),
-        body: PageView(
-          children: [
-            [
-              Home(),
-              AacCategory(
-                title: 'aacScreen',
-              ),
-              Setting(),
-            ][selectedIndex],
-          ],
-        ),
+        body: pages[selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           unselectedItemColor: Colors.black26,

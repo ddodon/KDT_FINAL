@@ -12,7 +12,10 @@ import '../../theme.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: HomeButtons());
+    return const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: HomeButtons()
+    );
   }
 }
 class HomeButtons extends StatelessWidget {
@@ -21,59 +24,37 @@ class HomeButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(
-              left:8,top:35,right:8),
-          child: Container(
-            child: Column(
-              children: [
-                Card(
-                  color: kBackColor,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                          Radius.circular(16.0)
-                      )
-                  ),
-                  child: Column(
+        child: Container(
+                child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: kBackColor,
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(16.0),
-                              topRight: Radius.circular(16.0)
-                          ),
-                        ),
-                        child: Padding(
+                      Padding(
                           padding: const EdgeInsets.only(
-                            left:25,top:20
+                            left:35,top:20
                           ),
                           child: Text.rich(
                           TextSpan(
                           text: '오늘의 학습',
                           style: textTheme().headline1?.copyWith(
                           color: kTextColor,
-                          fontSize: 20,fontWeight: FontWeight.bold),
+                          fontSize: 20),
                           )
                           )
                         ),
-                      ),
                       Row(
-                        children: [
+                        children: const [
                           Expanded(child: Padding(
-                            padding: const EdgeInsets.all(20.0),
+                            padding: EdgeInsets.only(left:20.0, right:15.0),
                             child: Quiz(),
                           )),
                           Expanded(child: Padding(
-                            padding: const EdgeInsets.all(20.0),
+                            padding: EdgeInsets.all(15.0),
                             child: Cards(),
                           )),
                         ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          bottom: 20,
+                      const Padding(
+                        padding: EdgeInsets.only(
                           left: 20,
                           right: 20,
                             ),
@@ -81,12 +62,8 @@ class HomeButtons extends StatelessWidget {
                       ),
                     ],
                   ),
-                )
-              ],
-            ),
           ),
         ),
-      ),
     );
   }
 }
@@ -98,14 +75,15 @@ class Quiz extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-          primary: kW,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16.0),
-          ),
+        backgroundColor: kW,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        elevation: 1.8
       ),
       onPressed: () {
         Navigator.push(context,
-             MaterialPageRoute(builder: ((context) => Expression_quiz())));
+            MaterialPageRoute(builder: ((context) => Expression_quiz())));
       },
       child: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -114,14 +92,14 @@ class Quiz extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Container(child: Image.asset('assets/image/face.png'),width: 50,height: 50),
+              child: SizedBox(child: Image.asset('assets/image/face.png'),width: 50,height: 50),
             ),
             Text.rich(
               TextSpan(
                 text: '표정 퀴즈',
                 style: textTheme().headline1?.copyWith(
                     color: kSecondaryColor,
-                    fontSize: 20,fontWeight: FontWeight.bold),
+                    fontSize: 20),
               ),
             ),
 
@@ -139,10 +117,11 @@ class Cards extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        primary: kW,
+        backgroundColor: kW,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16.0),
+          borderRadius: BorderRadius.circular(30.0),
         ),
+        elevation: 1.8
       ),
       onPressed: () {
         Navigator.push(context,
@@ -154,14 +133,14 @@ class Cards extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Container(child: Image.asset('assets/image/book.png'),width: 50,height: 50),
+              child: SizedBox(child: Image.asset('assets/image/book.png'),width: 50,height: 50),
             ),
             Text.rich(
               TextSpan(
                 text: '감정 카드',
                 style: textTheme().headline1?.copyWith(
                     color: kSecondaryColor,
-                    fontSize: 20,fontWeight: FontWeight.bold),
+                    fontSize: 20),
               ),
             )
           ],
@@ -178,10 +157,11 @@ class Speak extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        primary: kW,
+        backgroundColor: kW,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16.0),
+          borderRadius: BorderRadius.circular(20.0),
         ),
+        elevation: 1.8
       ),
       onPressed: () {
         Navigator.push(context,
@@ -194,14 +174,15 @@ class Speak extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Container(child: Image.asset('assets/image/microphone.png'),width: 50,height: 50),
+              child: SizedBox(child: Image.asset('assets/image/microphone.png'),width: 50,height: 50),
             ),
             Text.rich(
              TextSpan(
               text: '목소리 크기 학습',
               style: textTheme().headline1?.copyWith(
                 color: kSecondaryColor,
-                fontSize: 20,fontWeight: FontWeight.bold),
+                fontFamily: 'Nanum',
+                fontSize: 20),
               )   
             )
           ],
