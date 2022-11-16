@@ -9,7 +9,6 @@ import 'package:dio/dio.dart';
 import 'package:KDT_SENTIMENTO/constants.dart';
 import 'package:KDT_SENTIMENTO/screen/AAC/aac.dart';
 
-import 'package:flip_card/flip_card.dart';
 
 import '../Home/component/appbar.dart';
 import '../Home/component/drawer.dart';
@@ -25,7 +24,7 @@ class AacScreen extends StatefulWidget {
 }
 
 
-var preIcon_doctor = [ [ //의사 표현
+var preIcon = [ [ //의사 표현
   {"icon": "assets/image/03_expression/bad.png", "img": '', "name": "싫어요"},
   {"icon": "assets/image/03_expression/done.png", "img": '', "name": "다 했어요"},
   {"icon": "assets/image/03_expression/fall.png", "img": '', "name": "넘어졌어요"},
@@ -106,7 +105,7 @@ var preIcon_doctor = [ [ //의사 표현
 
 ];
 
-Map pickImg_doctor = new Map();
+Map pickImg = new Map();
 
 
 
@@ -116,20 +115,21 @@ class _AacScreen extends State<AacScreen> {
   File? _image;
   var selectedIndex = 1;
 
+
   _AacScreen({required this.idx});
 
   Future getImageFromGallery(int index) async{
     var image = await ImagePicker().pickImage(source: ImageSource.gallery);
     var now = new DateTime.now();
-    String nowtime = DateFormat('yyMMdd_HHmmss').format(now); // 여기서 에러가 있는데 돌아가는 건 잘 돌아감
+    String nowtime = DateFormat('yyMMdd_HHmmss').format(now); // e
     String _nowtime = '_' + nowtime;
-    preIcon_doctor.elementAt(idx).elementAt(index)['img'] = _nowtime;
+    preIcon.elementAt(idx).elementAt(index)['img'] = _nowtime;
 
     setState(() {
       _image = File(image!.path);
     });
 
-    pickImg_doctor[preIcon_doctor.elementAt(idx).elementAt(index)["img"]] = _image; //해당 key에 저장됨
+    pickImg[preIcon.elementAt(idx).elementAt(index)["img"]] = _image; //해당 key에 저장됨
   }
 
   final FlutterTts tts = FlutterTts();
@@ -142,6 +142,7 @@ class _AacScreen extends State<AacScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var screenratio = MediaQuery.of(context).size.width / MediaQuery.of(context).size.height;
     return Scaffold(
       drawer: MainDrawer(
       ),
@@ -149,13 +150,13 @@ class _AacScreen extends State<AacScreen> {
       body: GridView.count(
         crossAxisCount: 2,
         //1 개의 행에 보여줄 item 개수
-        childAspectRatio: 2 / 3,
-        //item 의 가로 1, 세로 2 의 비율
+        childAspectRatio: 2 / 2, /////////////////////
+        //item 의 가로 / 세로 의 비율
         mainAxisSpacing: 10,
         //수평 Padding
         crossAxisSpacing: 0,
         //수직 Padding
-        children: List.generate(preIcon_doctor.elementAt(idx).length, (index) {
+        children: List.generate(preIcon.elementAt(idx).length, (index) {
           //item 의 반목문 항목 형성
           return Container(////////////////////////////////////////////////////
             margin: index % 2 == 0
@@ -164,44 +165,50 @@ class _AacScreen extends State<AacScreen> {
             color: Colors.brown.shade100,
             child: Column(
                 children: <Widget>[
-
-                  IconButton(
+                Align(
+                  alignment: Alignment.topRight,
+                  child: IconButton(
                     onPressed: () => getImageFromGallery(index),
                     tooltip: '아이콘으로 넣을 이미지를 골라봐!',
                     icon: Icon(Icons.photo_library),
                   ),
+                ),
 
-
-                  Container(
-                    width: MediaQuery.of(context).size.width / 2.5,
-                    height: MediaQuery.of(context).size.height / 3.5,
+                Expanded(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width / 3,
+                    height: MediaQuery.of(context).size.width / 3,
                     padding: EdgeInsets.all(1.0),
                     child: Center(
-                      child: preIcon_doctor.elementAt(idx).elementAt(index)['img'] == ''
+                      child: preIcon.elementAt(idx).elementAt(index)['img'] == ''
                           ? Image.asset(
-                        preIcon_doctor.elementAt(idx).elementAt(index)['icon']!,
+                        preIcon.elementAt(idx).elementAt(index)['icon']!,
                       )
-                          : Image.file(pickImg_doctor[preIcon_doctor.elementAt(idx).elementAt(index)['img']!]),
+                          : Image.file(pickImg[preIcon.elementAt(idx).elementAt(index)['img']!]),
                     ),
                   ),
+                ),
 
-                  Row(
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Row(
                       mainAxisSize : MainAxisSize.max,
                       children: <Widget>[
                         IconButton(
                           onPressed: () {
                             tts.setVolume(0.7);
-                            tts.speak(preIcon_doctor.elementAt(idx).elementAt(index)['name']!);
+                            tts.speak(preIcon.elementAt(idx).elementAt(index)['name']!);
                           },
                           tooltip: '어떻게 발음하는지 들어봐!',
                           icon: Icon(Icons.volume_up),
                         ),
 
                         Text(
-                          preIcon_doctor.elementAt(idx).elementAt(index)['name']!,
+                          preIcon.elementAt(idx).elementAt(index)['name']!,
                         )
                       ]
                   )
+                ),
 
                 ]),
 
