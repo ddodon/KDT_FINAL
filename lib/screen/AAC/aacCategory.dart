@@ -6,7 +6,7 @@ import "package:flutter_tts/flutter_tts.dart";
 import 'package:dio/dio.dart';
 import 'package:KDT_SENTIMENTO/constants.dart';
 import 'package:KDT_SENTIMENTO/screen/AAC/aac.dart';
-import 'package:KDT_SENTIMENTO/screen/AAC/aacScreen.dart';
+import 'package:KDT_SENTIMENTO/screen/AAC/aacScreen_fb.dart';
 
 
 class AacCategory extends StatefulWidget {
@@ -59,7 +59,7 @@ class _AacCategory extends State<AacCategory> {
                   tts.setVolume(0.7);
                   tts.speak(cateIcon.elementAt(index)['name']!);
                   Navigator.push(context,
-                      MaterialPageRoute(builder: ((context) => AacScreen(title: 'aac', idx: index))));
+                      MaterialPageRoute(builder: ((context) => AacScreenfb(title: 'aac', idx: index))));
                 },
                 child: Container(///////////////////////////////////////////////
                     margin: index % 2 == 0
