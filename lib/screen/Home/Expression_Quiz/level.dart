@@ -11,24 +11,15 @@ class Expression_quiz extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(30.0),
-      child: Scaffold(
+    return
+      Scaffold(
         backgroundColor: Colors.white,
-        body: Column(
+        body:
+        Center(
+          child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                    onPressed: (){
-                      Navigator.pop(context);
-                    },
-                    icon:Icon(Icons.arrow_back,size: 35,)),
-                Text('',style: TextStyle(color: kTextColor,fontSize: 30),)],
-            ),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     primary: kBackColor,
