@@ -52,6 +52,8 @@ dependencies:
   logger: ^1.0.0
   flutter_tts: ^3.5.3
   flip_card: ^0.6.0
+  firebase_core: ^2.2.0
+  cloud_firestore: ^4.0.5
 dev_dependencies:
   flutter_test:
     sdk: flutter

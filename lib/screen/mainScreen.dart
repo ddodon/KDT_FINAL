@@ -1,3 +1,4 @@
+import 'package:KDT_SENTIMENTO/screen/AAC/aacCategory_fb.dart';
 import 'package:KDT_SENTIMENTO/screen/home/component/appbar.dart';
 import 'package:KDT_SENTIMENTO/screen/home/component/drawer.dart';
 import 'package:flutter/material.dart';
@@ -79,7 +80,7 @@ class _MainScreenState extends State<MainScreen> {
           appBar: MainAppBar(appBar: AppBar()),
           body: PageView(
             children: [ ////////////////////////////////////AacCategory로 변경
-              [Home(), AacCategory(title: 'aacScreen',), Setting(),][selectedIndex],
+              [Home(), AacCategoryfb(title: 'aacScreenfb',), Setting(),][selectedIndex],
             ],
           ),
           // IndexedStack(
