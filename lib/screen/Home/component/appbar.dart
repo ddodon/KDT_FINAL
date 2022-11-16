@@ -12,14 +12,14 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: kPrimaryColor,
+      backgroundColor: Color.fromRGBO(245, 249, 255, 0),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
             'assets/icons/logo.png',
             fit: BoxFit.contain,
-            height: 165,
+            height: 53,
           ),
         ],
       ),
