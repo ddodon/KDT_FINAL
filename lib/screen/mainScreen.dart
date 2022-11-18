@@ -2,7 +2,7 @@ import 'package:KDT_SENTIMENTO/screen/home/component/appbar.dart';
 import 'package:KDT_SENTIMENTO/screen/home/component/drawer.dart';
 import 'package:flutter/material.dart';
 import '../constants.dart';
-import 'AAC/aacCategory.dart'; //////////////////////////////////////////////////
+import 'package:KDT_SENTIMENTO/screen/AAC/aacCategory_fb.dart';
 import 'home/home.dart';
 import 'Setting/setting.dart';
 
@@ -12,61 +12,6 @@ class MainScreen extends StatefulWidget {
   _MainScreenState createState() => _MainScreenState();
 }
 
-// class To_home extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Dialog(
-//         child: IconButton(
-//             onPressed: () {
-//               Navigator.push(context,
-//                   MaterialPageRoute(builder: ((context) => Home())));
-//             },
-//             icon: Icon(Icons.arrow_back_ios))
-//     );
-//   }
-// }
-
-
-// class Home_to extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     // return MaterialApp(home: Home());
-//     // return MaterialPageRoute(builder: ((context) => Home()))
-//     // return Navigator.push(context, MaterialPageRoute(builder: ((context) => Home())));
-//     return MaterialApp(
-//       home: Scaffold(
-//         floatingActionButton: Builder(
-//           builder: (context)
-//     {
-//       return FloatingActionButton(
-//           onPressed: () {
-//             showDialog(context: context, builder: (context) {
-//               return Dialog(
-//                 child: IconButton(
-//                   onPressed: () {
-//                     Navigator.push(context,
-//                         MaterialPageRoute(builder: ((context) => Home())));
-//                   },
-//                   icon: Icon(Icons.arrow_back_ios))
-//               );
-//             });
-//           }
-//       );
-//     }
-//       ),
-//     appBar: AppBar(),
-//       body: ListView.builder(
-//         itemCount: 3,
-//         itemBuilder: (c, i){
-//           return ListTile(
-//             leading: Icon(Icons.arrow_back_ios),
-//           );
-//         }
-//       )
-//       )
-//     );
-//   }
-// }
 
 class _MainScreenState extends State<MainScreen> {
   var selectedIndex = 0;
@@ -79,7 +24,7 @@ class _MainScreenState extends State<MainScreen> {
           appBar: MainAppBar(appBar: AppBar()),
           body: PageView(
             children: [ ////////////////////////////////////AacCategory로 변경
-              [Home(), AacCategory(title: 'aacScreen',), Setting(),][selectedIndex],
+              [Home(), AacCategoryfb(title: 'aacScreen',), Setting(),][selectedIndex],
             ],
           ),
           // IndexedStack(
