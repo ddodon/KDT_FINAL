@@ -42,4 +42,3 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => new Size.fromHeight(appBar.preferredSize.height);
 }
 
-
