@@ -117,7 +117,7 @@ class _AacCategoryfb extends State<AacCategoryfb> {
                       boxShadow : [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 1.8, // 그림자가 어디까지 퍼질지
+                          spreadRadius: 2, // 그림자가 어디까지 퍼질지
                           blurRadius: 8, // 바깥으로 갈 수록 옅어지는
                           offset: Offset(1, 1), // changes position of shadow 오른쪽, 아래 방향 x, y
                         ),
